@@ -35,9 +35,10 @@ app.post("/verify", (req, res) => {
 
 })
 
-app.listen(8080, (err) => {
+const PORT = process.env.PORT || 8080
+app.listen(PORT, (err) => {
     if(err){
         console.error(err)
     }
-    console.log("Le serveur est en cours d'exécution sur le port 8080 !!!")
+    console.log(`Le serveur est en cours d'exécution sur le port ${PORT} !!!`)
 })

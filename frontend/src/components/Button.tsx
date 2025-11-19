@@ -1,8 +1,8 @@
 import type { MouseEventHandler } from "react"
 
 interface ButtonProps {
-    content: string
-    onClick: MouseEventHandler
+    content: string | undefined
+    onClick?: MouseEventHandler
     className: string
 }
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import Input from "../Input";
 import Button from "../Button";
 import { Link, useNavigate } from "react-router";
@@ -9,7 +9,7 @@ export function LoginPage() {
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
 
-  const handleFormSubmit = async (e: Event) => {
+  const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if(email && password){
       const response = await connect(email, password)
@@ -25,6 +25,7 @@ export function LoginPage() {
     <form onSubmit={handleFormSubmit} className="flex flex-col items-center p-4">
       <Input 
         id="email" 
+        type="text"
         label="Email*" 
         className="pl-1 py-1 rounded-md border-1 border-gray-400" 
         placeholder="bradley@gmail.com" 

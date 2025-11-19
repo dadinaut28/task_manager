@@ -1,11 +1,13 @@
+import type { SetStateAction, Dispatch } from "react"
+
 interface InputProps {
-    id: string
-    label: string
-    type: string
-    className: string
-    placeholder: string
-    value: string
-    onChange: Function
+    id?: string
+    label?: string
+    type?: string | undefined
+    className?: string
+    placeholder?: string
+    value?: string
+    onChange: Dispatch<SetStateAction<string>>
 }
 
 function Input({id, label, type = "text", className, value, placeholder, onChange}: InputProps) {

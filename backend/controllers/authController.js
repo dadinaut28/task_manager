@@ -62,6 +62,7 @@ async function postLogin(req, res){
 
     } 
     catch (err){
+        console.log(err)
         if(err){
             res.status(500).json({
                 message: "Une erreur s'est produite !"

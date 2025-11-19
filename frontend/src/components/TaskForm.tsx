@@ -1,10 +1,11 @@
+import type { FormEventHandler, SetStateAction, Dispatch } from "react"
 import Button from "./Button"
 import Input from "./Input"
 
 interface TaskFormProps {
     description: string
-    setDescription: Function
-    onSubmit: Function
+    setDescription: Dispatch<SetStateAction<string>>
+    onSubmit: FormEventHandler
 }
 
 function TaskForm({description, setDescription, onSubmit}: TaskFormProps) {

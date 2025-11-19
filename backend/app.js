@@ -6,8 +6,6 @@ const jwt = require("jsonwebtoken")
 const taskRouter = require('./routes/taskRouter')
 const authRouter = require('./routes/authRouter')
 
-
-require('dotenv').config() 
 const app = express()
 
 app.use(express.json())
@@ -33,6 +31,10 @@ app.post("/verify", (req, res) => {
         }
     })
 
+})
+
+app.all("/{*splat}", (req, res) => {
+    res.sendStatus(404)
 })
 
 const PORT = process.env.PORT || 8080

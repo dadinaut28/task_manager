@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import './App.css'
+const apiUrl = import.meta.env.VITE_API_URL
 
 import TaskList from '../TaskList.tsx'
 import TaskForm from '../TaskForm.tsx'
@@ -21,7 +22,7 @@ function App() {
   const createTask = async (e: FormEvent) => {
     e.preventDefault()
     if(description){
-      await fetch("http://localhost:8080/tasks", {
+      await fetch(apiUrl, {
         method: 'POST',
         headers: {
           "Content-type": "application/json",
@@ -43,7 +44,7 @@ function App() {
       return
     }
 
-    const response = await fetch("http://localhost:8080/verify", {
+    const response = await fetch(`${apiUrl}/verify`, {
       method: 'POST',
       headers: {
         "Content-type": "application/json"

@@ -22,7 +22,7 @@ function App() {
   const createTask = async (e: FormEvent) => {
     e.preventDefault()
     if(description){
-      await fetch(apiUrl, {
+      await fetch(`${apiUrl}/tasks`, {
         method: 'POST',
         headers: {
           "Content-type": "application/json",

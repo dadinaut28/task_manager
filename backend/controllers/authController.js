@@ -25,10 +25,10 @@ async function postRegister(req, res){
     }
     catch (err){
         if(err){
-            res.status(400).json({
-                message: "Une erreur s'est produite! Vérifiez vos entrées et réessayez."
+            res.status(500).json({
+                message: "Une erreur s'est produite!"
             })
-            console.log(err)
+            // console.log(err)
         }
     }
 }

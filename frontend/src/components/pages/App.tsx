@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import './App.css'
 
 import TaskList from '../TaskList.tsx'
 import TaskForm from '../TaskForm.tsx'
-import { connect, fetchTasks } from '../../queries.ts'
+import { fetchTasks } from '../../queries.ts'
 import { useNavigate } from 'react-router'
 
 
@@ -18,7 +18,7 @@ function App() {
     setTasks(fetchedTasks)
   }
 
-  const createTask = async (e: Event) => {
+  const createTask = async (e: FormEvent) => {
     e.preventDefault()
     if(description){
       await fetch("http://localhost:8080/tasks", {

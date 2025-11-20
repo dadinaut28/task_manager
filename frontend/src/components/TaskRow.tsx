@@ -1,4 +1,5 @@
 import { useState } from "react"
+import type { SetStateAction, Dispatch, FormEvent } from "react"
 import Button from "./Button"
 import Input from "./Input"
 import { fetchTasks } from "../queries"
@@ -12,7 +13,7 @@ interface Task {
 
 interface TaskRowProps  {
     task: Task
-    setTasks: Function
+    setTasks: Dispatch<SetStateAction<Task[]>> | Dispatch<SetStateAction<never[]>>
 }
 
 export function TaskRow({task, setTasks}: TaskRowProps){
@@ -38,11 +39,11 @@ export function TaskRow({task, setTasks}: TaskRowProps){
         }
     }
 
-    const updateTask = async (e: MouseEvent) => {
+    const updateTask = async (e: FormEvent) => {
         e.preventDefault()
         if(updatedDescription){
             try {
-                const response = await fetch(`${api_url}/tasks/${task.id}`, {
+                await fetch(`${api_url}/tasks/${task.id}`, {
                     method: "PUT",
                     headers: {
                         "Content-type": "application/json",

@@ -1,4 +1,4 @@
-import type { SetStateAction } from 'react'
+import type { SetStateAction, Dispatch } from 'react'
 import { TaskRow } from './TaskRow'
 
 interface Task { 
@@ -8,7 +8,7 @@ interface Task {
 
 interface TaskListProps {
     tasks: Task[]
-    setTasks: Function
+    setTasks: Dispatch<SetStateAction<Task[]>> | Dispatch<SetStateAction<never[]>>
 }
 
 function TaskList({tasks, setTasks}: TaskListProps) {

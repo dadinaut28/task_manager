@@ -28,7 +28,7 @@ async function postRegister(req, res){
             res.status(500).json({
                 message: "Une erreur s'est produite!"
             })
-            // console.log(err)
+            
         }
     }
 }

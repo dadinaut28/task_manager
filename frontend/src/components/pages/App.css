@@ -1,1 +1,18 @@
-@import "tailwindcss"
+@import "tailwindcss";
+button {
+  cursor: pointer;
+}
+
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  width: clamp(320px, 1352px, 1352px);
+  position: relative;
+}

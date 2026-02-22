@@ -1,19 +1,30 @@
-import type { MouseEventHandler } from "react"
+import type { MouseEventHandler, ReactElement } from "react";
 
 interface ButtonProps {
-    content: string | undefined
-    onClick?: MouseEventHandler
-    className: string
+  content?: string | undefined;
+  onClick?: MouseEventHandler;
+  className: string;
+  disabled?: boolean;
+  children?: ReactElement;
 }
 
-function Button({content, onClick, className}: ButtonProps) {
-
-    const defaultClass = "h-8 w-24 cursor-pointer bg-blue-600 rounded-md text-white"
-    const buttonClass = className ? className: defaultClass
+function Button({
+  content,
+  onClick,
+  className,
+  disabled = false,
+  children,
+}: ButtonProps) {
+  const defaultClass =
+    "h-8 w-24 cursor-pointer bg-blue-600 rounded-md text-white";
+  const buttonClass = className ? className : defaultClass;
 
   return (
-    <button className= {buttonClass} onClick={onClick}>{content}</button>
-  )
+    <button disabled={disabled} className={buttonClass} onClick={onClick}>
+      {children}
+      {content}
+    </button>
+  );
 }
 
-export default Button
+export default Button;
